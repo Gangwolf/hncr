@@ -1,0 +1,10 @@
+name: hncr
+version: 0.1.0
+
+authors:
+  - Dan <gangwolf@email.com>
+
+description: |
+  A concurrent Hacker News API wrapper for Crystal
+
+license: MIT

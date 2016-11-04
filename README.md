@@ -10,6 +10,7 @@ Add this to your application's `shard.yml`:
 dependencies:
   hncr:
     github: Gangwolf/hncr
+    branch: master
 ```
 
 ## Usage
@@ -18,7 +19,7 @@ dependencies:
 require "hncr"
 
 # Get ten stories of the 'top' category and print them
-HN::Item.new(type: :top, count: 10) do |item|
+HN::Item.new(type: "top", count: 10) do |item|
   puts "#{ item["title"] }, by #{ item["by"] }\n#{ item["url"]? }\n\n"
 end
 
@@ -36,8 +37,8 @@ items do not return in order. Its first response, first serve.
 ##### Items constructor:
 `HN::Item(type, count, &block)`
 
-* `type : Symbol` One of the following symbols for the type of story:
-`:new`, `:top`, `:best`, `:ask`, `:show`, or `:job`. 
+* `type : String` One of the following symbols for the type of story:
+`new`, `top`, `best`, `ask`, `show`, or `job`. 
 
 * `count : Int32` The number of stories to return.
 

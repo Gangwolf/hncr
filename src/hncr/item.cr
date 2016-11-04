@@ -1,3 +1,4 @@
+require "./categories"
 require "http/client"
 require "json"
 
@@ -6,8 +7,12 @@ module HN
     private getter :item_channel
     @item_channel = Channel(JSON::Any).new
 
-    def initialize(type : Symbol, count : Int32, &block)
-      get_item_json(type, count)
+    def initialize(type : String, count : Int32, &block)
+      Categories.parse(type)
+      rescue ArgumentError
+        raise ArgumentError.new("#{type} is not a category!")
+      else
+        get_item_json(type, count)
         count.times do
           yield item_channel.receive
         end

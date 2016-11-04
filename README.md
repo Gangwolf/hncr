@@ -37,7 +37,7 @@ items do not return in order. Its first response, first serve.
 ##### Items constructor:
 `HN::Item(type, count, &block)`
 
-* `type : String` One of the following symbols for the type of story:
+* `type : String` One of the following strings for the type of story:
 `new`, `top`, `best`, `ask`, `show`, or `job`. 
 
 * `count : Int32` The number of stories to return.
